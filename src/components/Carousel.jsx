@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { banners } from '../data/banners'
 import { vigente } from '../lib'
 
-export default function Carousel({ children }) {
+export default function Carousel() {
   const slides = banners.filter((b) => vigente('', b.hasta))
   const [i, setI] = useState(0)
   const [pausa, setPausa] = useState(false)
@@ -39,7 +39,6 @@ export default function Carousel({ children }) {
         <button className="car-a next" aria-label="Siguiente" onClick={() => ir(i + 1)}>›</button>
         <div className="dots">{slides.map((s, k) => <button key={s.img} className={k === i ? 'on' : ''} aria-label={'Slide ' + (k + 1)} onClick={() => setI(k)} />)}</div>
       </>}
-      <div className="hero-in">{children}</div>
     </section>
   )
 }

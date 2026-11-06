@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import ContactForm from '../components/ContactForm'
-import { offers } from '../data/offers'
-import { vigente } from '../lib'
 
 const estilos = [
   ['Classics', '/classics', '/img/home-classics.png'],
@@ -11,13 +9,9 @@ const estilos = [
 ]
 
 export default function Home() {
-  const hayOfertas = offers.some((o) => vigente('', o.hasta))
   return (
     <>
-      <Carousel>
-        <a href="#contacto" className="btn">Agendá un testride</a>
-        {hayOfertas && <Link to="/ofertas" className="btn ghost">Conocé nuestras ofertas</Link>}
-      </Carousel>
+      <Carousel />
 
       <section className="sec center">
         <h1>Bienvenido a Triumph</h1>
