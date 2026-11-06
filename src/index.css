@@ -148,6 +148,11 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .pop-x{position:absolute;top:8px;right:10px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:#000;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
 @keyframes fade{from{opacity:0}}@keyframes up{from{transform:translateY(24px);opacity:0}}
 
+@media(max-width:768px){
+.car-a{top:auto;bottom:12px;transform:none;width:38px;height:38px;border-radius:50%;font-size:1.6rem;padding-bottom:3px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.car-a.prev{left:calc(50% - 82px)}.car-a.next{right:calc(50% - 82px)}
+.dots{bottom:25px}
+}
 @media(max-width:768px){.wapp{padding:0;width:56px;height:56px;justify-content:center;right:14px;bottom:14px}.wapp-t{display:none}.wapp svg{width:30px;height:30px}}
 @media(max-width:900px){
   .burger{display:flex}
