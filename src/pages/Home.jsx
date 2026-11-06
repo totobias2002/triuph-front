@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec" id="contacto">
+      <section className="contacto" id="contacto">
         <div className="narrow">
           <h2>Enviános tu consulta</h2>
           <p className="muted">Despejaremos tu duda a la brevedad.</p>
