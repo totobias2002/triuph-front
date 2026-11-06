@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Carousel />
 
-      <section className="sec center">
+      <section className="sec center estilos-sec">
         <h1>Bienvenido a Triumph</h1>
         <h2 className="sub">Elegí tu estilo</h2>
         <div className="estilos">

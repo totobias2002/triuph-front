@@ -64,6 +64,9 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .hero-in{z-index:3;position:absolute;left:0;right:0;bottom:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:0 20px}
 .hero .btn:not(.ghost){background:#fff;color:#000;border-color:#fff}.hero .btn:not(.ghost):hover{background:transparent;color:#fff}
 
+.estilos-sec{max-width:none;width:100%;min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 4vw}
+.estilos-sec .estilos{width:100%;max-width:1600px;margin-top:4vh}
+.estilos-sec .estilo span{font-size:clamp(1.3rem,2vw,2rem)}
 .estilos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
 .estilo{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 10px 18px;background:transparent}
 .estilo img{width:100%;height:auto;aspect-ratio:865/450;object-fit:contain;transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .45s}
