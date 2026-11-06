@@ -34,7 +34,8 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .menu .btn.sm{background:#fff;color:#000;border-color:#fff}.menu .btn.sm:hover{background:transparent;color:#fff}
 .dd{position:relative;height:72px;display:flex;align-items:center}
 .dd-t{cursor:pointer}
-.dd-m{display:none;position:absolute;top:72px;left:-20px;background:#000;padding:24px;gap:40px;min-width:200px;border-top:1px solid #333}
+.dd-m{display:none;position:absolute;top:72px;left:-20px;background:#000;padding:24px;gap:28px 40px;min-width:200px;border-top:1px solid #333}
+.dd:hover .dd-m:not(.small),.dd:focus-within .dd-m:not(.small){display:grid;grid-template-columns:repeat(4,auto)}
 .dd:hover .dd-m,.dd:focus-within .dd-m{display:flex}
 .dd-col{display:flex;flex-direction:column;gap:8px;white-space:nowrap}
 .dd-col a{font-weight:400;text-transform:none;letter-spacing:0;color:#ccc}.dd-col a:hover{color:#fff}
@@ -232,6 +233,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
   .menu.open{display:flex}
   .dd{height:auto;flex-direction:column;align-items:flex-start}
   .dd-m{display:flex;position:static;flex-direction:column;gap:16px;padding:10px 0 0 10px;border:0}
+  .menu .dd:hover .dd-m:not(.small),.menu .dd .dd-m:not(.small){display:flex;grid-template-columns:none}
   .estilos,.model-hero,.foot-in{grid-template-columns:1fr}
   .estilos-sec{height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:0;overflow:hidden;padding:clamp(22px,5.5vh,52px) 16px 8px;justify-content:flex-start}
   .estilos-sec h1{font-size:clamp(1.1rem,min(4.4vh,6.2vw),2rem);white-space:nowrap}
