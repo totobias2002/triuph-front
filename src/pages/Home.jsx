@@ -32,7 +32,7 @@ export default function Home() {
             <Link to="/indumentaria" className="btn">Ver más</Link>
           </div>
         </div>
-        <div className="split-t light" style={{ backgroundImage: 'url(/img/accesorios.png)' }}>
+        <div className="split-t light" style={{ backgroundImage: 'url(/img/accesorios-custom.jpg)' }}>
           <div className="split-c">
             <h2>Personalizá tu Triumph</h2>
             <p>Personalizá la Triumph de tus sueños con nuestra amplia gama de accesorios originales y comienza tu ruta junto a nosotros, sea cual sea tu destino.</p>
