@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel'
+import InstagramSection from '../components/InstagramSection'
 import ContactForm from '../components/ContactForm'
 
 const estilos = [
@@ -40,6 +41,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <InstagramSection />
 
       <section className="contacto" id="contacto">
         <div className="narrow">
