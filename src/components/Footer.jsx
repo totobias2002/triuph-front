@@ -8,6 +8,8 @@ const Icono = () => (
   </svg>
 )
 
+const YEAR = new Date().getFullYear()
+
 export default function Footer() {
   return (
     <>
@@ -39,7 +41,7 @@ export default function Footer() {
         </div>
         <div className="credits">
           <Link to="/politica-de-cookies">Política de Privacidad</Link>
-          <span>©{new Date().getFullYear()} {dealer.nombre} · Triumph es una marca registrada de Triumph Motorcycles Ltd. · Tipografía Triumph Brokman © The Northern Block</span>
+          <span>©{YEAR} {dealer.nombre} · Triumph es una marca registrada de Triumph Motorcycles Ltd. · Tipografía Triumph Brokman © The Northern Block</span>
         </div>
       </footer>
     </>

@@ -19,7 +19,7 @@ export default function Counter({ n, pre = '', suf = '' }) {
       }
       raf = requestAnimationFrame(step)
     }
-    if (typeof IntersectionObserver === 'undefined') { setV(to); return }
+    if (typeof IntersectionObserver === 'undefined') { raf = requestAnimationFrame(() => setV(to)); return () => cancelAnimationFrame(raf) }
     const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { io.disconnect(); run() } }, { threshold: 0.4 })
     io.observe(el)
     return () => { io.disconnect(); cancelAnimationFrame(raf) }
