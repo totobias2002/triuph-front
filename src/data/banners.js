@@ -4,7 +4,7 @@
 // 'hasta' (YYYY-MM-DD, opcional): el slide se oculta solo al vencer.
 // OJO: los banners 1 y 2 traen "Triumph Buenos Aires" y su promo dibujados; reemplazar por los de la agencia antes de publicar.
 export const banners = [
-  { img: '/img/banner-1.jpg', ajuste: 'cover', alt: 'Time for Triumph', link: '/ofertas' },
+  { img: '/img/banner-1.jpg', imgMovil: '/img/banner-1-movil.jpg', ajuste: 'cover', alt: 'Time for Triumph', link: '/ofertas' },
   { img: '/img/banner-2.jpg', ajuste: 'cover', alt: 'Time for Triumph', link: '/ofertas' },
   { img: '/img/banner-3.jpg', ajuste: 'cover', alt: 'Tiger Sport 660', link: '/moto/tiger-sport-660' },
 ]
