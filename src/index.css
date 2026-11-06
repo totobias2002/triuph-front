@@ -106,7 +106,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .form select,.form textarea,.form .btn{grid-column:1/-1}
 .ok{padding:24px;background:var(--grey);text-align:center;font-weight:600}
 
-.wapp{position:fixed;right:18px;bottom:18px;z-index:40;background:#25d366;color:#fff;padding:12px 20px;border-radius:40px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.wapp{display:flex;align-items:center;gap:8px;position:fixed;right:18px;bottom:18px;z-index:40;background:#25d366;color:#fff;padding:12px 20px;border-radius:40px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .foot{background:#000;color:#fff;padding:56px 20px 24px}
 .foot-in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.4fr;gap:32px}
 .foot-in>div{display:flex;flex-direction:column;gap:6px;color:#bbb}
@@ -122,6 +122,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .pop-x{position:absolute;top:8px;right:10px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:#000;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
 @keyframes fade{from{opacity:0}}@keyframes up{from{transform:translateY(24px);opacity:0}}
 
+@media(max-width:768px){.wapp{padding:0;width:56px;height:56px;justify-content:center;right:14px;bottom:14px}.wapp-t{display:none}.wapp svg{width:30px;height:30px}}
 @media(max-width:900px){
   .burger{display:flex}
   .menu{display:none;position:absolute;top:72px;left:0;right:0;background:#000;flex-direction:column;align-items:flex-start;padding:20px;gap:16px;max-height:calc(100vh - 72px);overflow:auto}
