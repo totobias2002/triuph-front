@@ -24,15 +24,20 @@ export default function Home() {
       </section>
 
       <section className="split">
-        <div className="split-t dark">
-          <h2>Indumentaria</h2>
-          <p>Sea cual sea tu destino y las condiciones meteorológicas, las prendas que elijas son un aspecto tan importante como tu moto. Conocé nuestro amplio catálogo de chaquetas, pantalones, guantes y calzado.</p>
-          <Link to="/indumentaria" className="btn">Ver más</Link>
+        <div className="split-t dark" style={{ backgroundImage: 'url(/img/indumentaria.jpg)' }}>
+          <div className="split-c">
+            <h2>Indumentaria</h2>
+            <p>Sea cual sea tu destino y las condiciones meteorológicas, las prendas que elijas son un aspecto tan importante como tu moto.</p>
+            <p>Conoce nuestro amplio catálogo de chaquetas, pantalones, guantes y calzado.</p>
+            <Link to="/indumentaria" className="btn">Ver más</Link>
+          </div>
         </div>
-        <div className="split-t light">
-          <h2>Personalizá tu Triumph</h2>
-          <p>Personalizá la Triumph de tus sueños con nuestra amplia gama de accesorios originales y comenzá tu ruta junto a nosotros, sea cual sea tu destino.</p>
-          <Link to="/accesorios" className="btn">Catálogo de accesorios</Link>
+        <div className="split-t light" style={{ backgroundImage: 'url(/img/accesorios.png)' }}>
+          <div className="split-c">
+            <h2>Personalizá tu Triumph</h2>
+            <p>Personalizá la Triumph de tus sueños con nuestra amplia gama de accesorios originales y comienza tu ruta junto a nosotros, sea cual sea tu destino.</p>
+            <Link to="/accesorios" className="btn">Catálogo de accesorios</Link>
+          </div>
         </div>
       </section>
 
