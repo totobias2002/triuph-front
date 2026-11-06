@@ -168,12 +168,21 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
   .dd{height:auto;flex-direction:column;align-items:flex-start}
   .dd-m{display:flex;position:static;flex-direction:column;gap:16px;padding:10px 0 0 10px;border:0}
   .estilos,.model-hero,.foot-in{grid-template-columns:1fr}
-  .estilos-sec{height:auto;min-height:calc(100svh - 72px);overflow:visible;padding:48px 20px}
-  .estilos-sec .estilo img{height:auto;aspect-ratio:865/450}
+  .estilos-sec{height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:0;overflow:hidden;padding:10px 16px 8px;justify-content:flex-start}
+  .estilos-sec h1{font-size:clamp(1.1rem,min(4.4vh,6.2vw),2rem);white-space:nowrap}
+  .estilos-sec .sub{font-size:clamp(.9rem,2.6vh,1.3rem);margin-top:0}
+  .estilos-sec .estilos{flex:1 1 0;min-height:0;width:100%;margin-top:6px;grid-template-columns:1fr;grid-template-rows:repeat(3,minmax(0,1fr));gap:0}
+  .estilos-sec .estilo{min-height:0;padding:0;gap:0}
+  .estilos-sec .estilo img{flex:1 1 0;min-height:0;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+  .estilos-sec .estilo span{font-size:clamp(.85rem,2.2vh,1.1rem);padding-bottom:4px;letter-spacing:.06em}
+  .estilos-sec .estilo:hover img{transform:none;filter:none}
   .form{grid-template-columns:1fr}
-  .split{grid-template-rows:none;height:auto}
-  .split-t{padding:48px 24px;min-height:70svh}
-  .split-t.dark{background-size:cover;background-position:30% center;justify-content:flex-start;align-items:flex-end}
-  .split-t.dark::before{background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.15) 60%)}
-  .split-t.light{background-size:130% auto;background-position:center bottom;align-items:flex-start}
+  .split{grid-template-rows:1fr 1fr;height:calc(100vh - 72px);height:calc(100svh - 72px)}
+  .split-t{padding:14px 20px}
+  .split-t.dark{background-size:cover;background-position:30% 18%;justify-content:flex-start;align-items:flex-end}
+  .split-t.dark::before{background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.1) 70%)}
+  .split-t.light{background-size:auto 52%;background-position:center bottom;align-items:flex-start}
+  .split-c{max-width:none}
+  .split-c h2{font-size:clamp(1.05rem,3.4vh,1.6rem)}
+  .split-c p{font-size:clamp(.72rem,1.75vh,.95rem)}
 }
