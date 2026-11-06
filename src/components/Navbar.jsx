@@ -13,7 +13,7 @@ export default function Navbar() {
         <Link to="/" className="logo" onClick={close}><img src="/img/logo.svg" alt="Triumph" /></Link>
         <button className="burger" aria-label="Menú" onClick={() => setOpen(!open)}><span /><span /><span /></button>
         <nav className={open ? 'menu open' : 'menu'}>
-          <NavLink to="/ofertas" className="hl" onClick={close}>Ofertas</NavLink>
+          <NavLink to="/ofertas" className={({ isActive }) => (isActive ? 'hl active' : 'hl')} onClick={close}>Ofertas</NavLink>
           <div className="dd">
             <span className="dd-t">Motos</span>
             <div className="dd-m">
