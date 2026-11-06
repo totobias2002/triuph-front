@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { models } from '../data/models'
+import { modelPath } from '../lib'
 
 const cats = ['Classics', 'Roadsters', 'Adventure']
 
@@ -21,7 +22,7 @@ export default function Navbar() {
                 <div key={c} className="dd-col">
                   <Link to={'/' + c.toLowerCase()} className="dd-h" onClick={close}>{c}</Link>
                   {models.filter((m) => m.cat === c).map((m) => (
-                    <Link key={m.slug} to={'/moto/' + m.slug} onClick={close}>{m.name}</Link>
+                    <Link key={m.slug} to={modelPath(m)} onClick={close}>{m.name}</Link>
                   ))}
                 </div>
               ))}
@@ -32,7 +33,7 @@ export default function Navbar() {
             <div className="dd-m small">
               <div className="dd-col">
                 <Link to="/service" onClick={close}>Service</Link>
-                <Link to="/accesorios" onClick={close}>Accesorios</Link>
+                <Link to="/accesorios-triumph" onClick={close}>Accesorios</Link>
                 <Link to="/indumentaria" onClick={close}>Indumentaria</Link>
               </div>
             </div>

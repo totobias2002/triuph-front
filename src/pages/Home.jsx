@@ -39,7 +39,7 @@ export default function Home() {
             <h2>Personalizá tu Triumph</h2>
             <p className="not-m">Personalizá la Triumph de tus sueños con nuestra amplia gama de accesorios originales y comienza tu ruta junto a nosotros, sea cual sea tu destino.</p>
             <p className="only-m">Accesorios originales para armar tu Triumph a tu gusto.</p>
-            <Link to="/accesorios" className="btn">Catálogo de accesorios</Link>
+            <Link to="/accesorios-triumph" className="btn">Catálogo de accesorios</Link>
           </div>
         </div>
       </section>
