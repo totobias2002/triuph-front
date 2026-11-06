@@ -26,9 +26,15 @@ export default function Carousel() {
     <section className="hero" onMouseEnter={() => setPausa(true)} onMouseLeave={() => setPausa(false)}
       onTouchStart={(e) => { x0.current = e.touches[0].clientX }} onTouchEnd={onEnd}>
       {slides.map((s, k) => {
-        const img = <img src={s.img} alt={s.alt || s.titulo || ''} className={s.ajuste === 'cover' ? 'cover' : ''} />
+        const img = (
+          <picture>
+            {s.imgMovil && <source media="(max-width: 768px)" srcSet={s.imgMovil} />}
+            <img src={s.img} alt={s.alt || s.titulo || ''} className={s.ajuste === 'cover' ? 'cover' : ''} />
+          </picture>
+        )
         return (
-          <div key={s.img} className={k === i ? 'slide on' : 'slide'} aria-hidden={k !== i}>
+          <div key={s.img} className={(k === i ? 'slide on' : 'slide') + (s.imgMovil ? ' has-m' : '')} aria-hidden={k !== i}>
+            {s.ajuste === 'cover' && <div className="bgb" style={{ backgroundImage: `url(${s.img})` }} />}
             {s.link && !s.titulo ? <Link to={s.link} tabIndex={k === i ? 0 : -1}>{img}</Link> : img}
             {s.titulo && <Link to={s.link || '/'} className="hero-t" tabIndex={k === i ? 0 : -1}>{s.titulo}</Link>}
           </div>

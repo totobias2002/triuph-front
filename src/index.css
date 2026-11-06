@@ -47,7 +47,13 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s;pointer-events:none}
 .slide.on{opacity:1;pointer-events:auto}
 .slide img,.slide a{display:block;width:100%;height:100%}
-.slide img{object-fit:contain}.slide img.cover{object-fit:cover;object-position:center center}
+.slide picture{display:block;width:100%;height:100%;position:relative}
+.slide img{object-fit:contain}
+/* banners: se ven ENTEROS (sin cortar textos); lo que sobra se rellena con la misma foto desenfocada */
+.slide img.cover{object-fit:contain;object-position:center center;position:relative}
+.bgb{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(28px) brightness(.75)}
+/* con version vertical para celular (imgMovil) si llena la pantalla */
+@media(max-width:768px){.slide.has-m img.cover{object-fit:cover}.slide.has-m .bgb{display:none}}
 .car-a{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:48px;height:64px;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:2.4rem;line-height:1;cursor:pointer}
 .car-a:hover{background:rgba(0,0,0,.8)}.car-a.prev{left:0}.car-a.next{right:0}
 .dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:10px;z-index:3}
