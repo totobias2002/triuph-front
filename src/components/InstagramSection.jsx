@@ -11,7 +11,6 @@ export default function InstagramSection() {
     <section className="insta">
       <div className="insta-in">
         <h2>Seguinos en Instagram</h2>
-        <a className="insta-user" href={instagram.url} target="_blank" rel="noreferrer">{instagram.usuario}</a>
         <div className="insta-grid">
           {instagram.posts.map((p) => (
             <a key={p.img} href={p.link || instagram.url} target="_blank" rel="noreferrer" className="insta-post" aria-label={p.alt}>
@@ -20,7 +19,6 @@ export default function InstagramSection() {
             </a>
           ))}
         </div>
-        <a className="btn" href={instagram.url} target="_blank" rel="noreferrer">Seguinos</a>
       </div>
     </section>
   )
