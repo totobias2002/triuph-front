@@ -8,6 +8,7 @@ export default function Carousel() {
   const [i, setI] = useState(0)
   const [pausa, setPausa] = useState(false)
   const x0 = useRef(null)
+  const root = useRef(null)
   const n = slides.length
   const ir = (k) => setI((k + n) % n)
   useEffect(() => {
@@ -15,6 +16,23 @@ export default function Carousel() {
     const t = setInterval(() => setI((c) => (c + 1) % n), 6000)
     return () => clearInterval(t)
   }, [pausa, n])
+  // Ajusta cada imagen a la seccion: si la proporcion es parecida la estira para llenar (imagen completa,
+  // sin franjas); si es muy distinta la muestra entera con negro alrededor (nunca se corta ni se deforma de mas).
+  const ajustar = () => {
+    const h = root.current
+    if (!h) return
+    const ar = h.clientWidth / h.clientHeight
+    h.querySelectorAll('img.cover').forEach((im) => {
+      if (!im.naturalWidth) return
+      const r = ar / (im.naturalWidth / im.naturalHeight)
+      im.style.objectFit = r > 0.76 && r < 1.32 ? 'fill' : 'contain'
+    })
+  }
+  useEffect(() => {
+    ajustar()
+    window.addEventListener('resize', ajustar)
+    return () => window.removeEventListener('resize', ajustar)
+  })
   if (!n) return null
   const onEnd = (e) => {
     if (x0.current == null) return
@@ -23,7 +41,7 @@ export default function Carousel() {
     x0.current = null
   }
   return (
-    <section className="hero" onMouseEnter={() => setPausa(true)} onMouseLeave={() => setPausa(false)}
+    <section className="hero" ref={root} onMouseEnter={() => setPausa(true)} onMouseLeave={() => setPausa(false)}
       onTouchStart={(e) => { x0.current = e.touches[0].clientX }} onTouchEnd={onEnd}>
       {slides.map((s, k) => {
         if (s.texto) {
@@ -44,7 +62,7 @@ export default function Carousel() {
         const img = (
           <picture>
             {s.imgMovil && <source media="(max-width: 768px)" srcSet={s.imgMovil} />}
-            <img src={s.img} alt={s.alt || s.titulo || ''} className={s.ajuste === 'cover' ? 'cover' : ''} />
+            <img src={s.img} alt={s.alt || s.titulo || ''} className={s.ajuste === 'cover' ? 'cover' : ''} onLoad={ajustar} />
           </picture>
         )
         return (

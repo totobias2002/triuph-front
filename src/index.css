@@ -283,4 +283,3 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .hero{background:#050505}
 .slide .bgb{display:none!important}
 /* escritorio: la imagen completa toda la seccion (sin franjas) */
-@media(min-width:769px){.slide img.cover{object-fit:fill}}
