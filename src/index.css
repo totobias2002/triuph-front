@@ -279,3 +279,6 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 }
 
 .dots{display:none}
+/* sin franjas "transparentes": lo que sobra de la imagen es negro y la imagen se funde con el borde */
+.hero{background:#050505}
+.slide .bgb{display:none!important}
