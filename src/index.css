@@ -282,8 +282,3 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 /* sin franjas "transparentes": lo que sobra de la imagen es negro y la imagen se funde con el borde */
 .hero{background:#050505}
 .slide .bgb{display:none!important}
-/* escritorio: el carrusel toma la proporcion del banner (sin franjas), sin pasar de la pantalla */
-@media(min-width:769px){
-  .hero{height:min(calc(100svh - 72px),calc(100vw * 546 / 1480));min-height:0}
-  .slide img.cover{object-fit:cover}
-}
