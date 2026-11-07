@@ -58,7 +58,6 @@ export default function Carousel() {
       {n > 1 && <>
         <button className="car-a prev" aria-label="Anterior" onClick={() => ir(i - 1)}>‹</button>
         <button className="car-a next" aria-label="Siguiente" onClick={() => ir(i + 1)}>›</button>
-        <div className="dots">{slides.map((s, k) => <button key={s.img} className={k === i ? 'on' : ''} aria-label={'Slide ' + (k + 1)} onClick={() => setI(k)} />)}</div>
       </>}
     </section>
   )
