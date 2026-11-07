@@ -49,7 +49,7 @@ export default function Carousel() {
         )
         return (
           <div key={s.img} className={(k === i ? 'slide on' : 'slide') + (s.imgMovil ? ' has-m' : '')} aria-hidden={k !== i}>
-            {s.ajuste === 'cover' && <div className="bgb" style={{ backgroundImage: `url(${s.img})` }} />}
+            {s.ajuste === 'cover' && <div className="bgb" style={{ backgroundImage: `url(${s.img})`, '--bm': `url(${s.imgMovil || s.img})` }} />}
             {s.link && !s.titulo ? <Link to={s.link} tabIndex={k === i ? 0 : -1}>{img}</Link> : img}
             {s.titulo && <Link to={s.link || '/'} className="hero-t" tabIndex={k === i ? 0 : -1}>{s.titulo}</Link>}
           </div>

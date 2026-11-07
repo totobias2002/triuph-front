@@ -54,7 +54,8 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .slide img.cover{object-fit:contain;object-position:center center;position:relative}
 .bgb{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(28px) brightness(.75)}
 /* con version vertical para celular (imgMovil) si llena la pantalla */
-@media(max-width:768px){.slide.has-m img.cover{object-fit:cover}.slide.has-m .bgb{display:none}}
+/* celular: la imagen vertical se ve ENTERA en cualquier proporcion (nunca se corta); el resto se rellena con la misma foto desenfocada */
+@media(max-width:768px){.slide.has-m .bgb{background-image:var(--bm)!important}}
 .car-a{position:absolute;top:calc(50% - 20px);transform:translateY(-50%);z-index:3;width:48px;height:64px;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:2.4rem;line-height:1;cursor:pointer}
 .car-a:hover{background:rgba(0,0,0,.8)}.car-a.prev{left:0}.car-a.next{right:0}
 .dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:10px;z-index:3}
