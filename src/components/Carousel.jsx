@@ -26,6 +26,21 @@ export default function Carousel() {
     <section className="hero" onMouseEnter={() => setPausa(true)} onMouseLeave={() => setPausa(false)}
       onTouchStart={(e) => { x0.current = e.touches[0].clientX }} onTouchEnd={onEnd}>
       {slides.map((s, k) => {
+        if (s.texto) {
+          // Slide de foto limpia + texto escrito en codigo (editable en src/data/banners.js)
+          const t = s.texto
+          return (
+            <div key={s.img} className={k === i ? 'slide on tx' : 'slide tx'} aria-hidden={k !== i}>
+              <img src={s.img} alt={s.alt || t.titulo || ''} />
+              <div className="tx-in">
+                {t.etiqueta && <span className="tx-e">{t.etiqueta}</span>}
+                <h2>{t.titulo}</h2>
+                {t.sub && <p>{t.sub}</p>}
+                {t.boton && <Link to={t.link || '/ofertas'} className="btn red" tabIndex={k === i ? 0 : -1}>{t.boton}</Link>}
+              </div>
+            </div>
+          )
+        }
         const img = (
           <picture>
             {s.imgMovil && <source media="(max-width: 768px)" srcSet={s.imgMovil} />}

@@ -264,3 +264,15 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
   .split-c .btn{padding:8px 16px;font-size:.72rem;letter-spacing:.05em}
   .split-t{padding:18px 24px}
 }
+
+/* slide de foto limpia + texto en codigo */
+.slide.tx img{object-fit:cover;object-position:center}
+.slide.tx::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,0) 100%)}
+.tx-in{position:absolute;z-index:2;left:max(24px,6vw);top:50%;transform:translateY(-50%);max-width:min(560px,86vw);color:#fff}
+.tx-e{display:block;font-size:clamp(.8rem,1.8vh,1rem);letter-spacing:.18em;text-transform:uppercase;color:#ddd;margin-bottom:12px}
+.tx-in h2{font-size:clamp(1.9rem,6.5vh,4rem);line-height:1.05;text-transform:uppercase;margin:0 0 14px}
+.tx-in p{font-size:clamp(.95rem,2.4vh,1.2rem);margin:0 0 22px;color:#eee}
+@media(max-width:768px){
+  .slide.tx::after{background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.4) 55%,rgba(0,0,0,0) 100%)}
+  .tx-in{top:auto;bottom:24px;transform:none;left:56px;right:56px;max-width:none}
+}
