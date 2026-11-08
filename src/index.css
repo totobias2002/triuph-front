@@ -75,15 +75,15 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .slide picture{display:block;width:100%;height:100%;position:relative}
 .slide img{object-fit:contain}
 /* banners: se ven ENTEROS (sin cortar textos); lo que sobra se rellena con la misma foto desenfocada */
-.slide img.cover{object-fit:contain;object-position:center center;position:relative}
-.bgb{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(28px) brightness(.75)}
+.slide img.cover{object-fit:cover;object-position:center center;position:relative}
+.bgb{display:none}
+/* desktop: las imagenes son 16:9, en pantallas apaisadas llenan todo (el recorte es minimo); en ventanas mas cuadradas se ven enteras */
 /* con version vertical para celular (imgMovil) si llena la pantalla */
-/* celular: la imagen vertical se ve ENTERA en cualquier proporcion (nunca se corta); el resto se rellena con la misma foto desenfocada */
-@media(max-width:768px){.slide.has-m .bgb{background-image:var(--bm)!important}}
-.car-a{position:absolute;top:calc(50% - 20px);transform:translateY(-50%);z-index:3;width:48px;height:64px;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:2.4rem;line-height:1;cursor:pointer}
-.car-a:hover{background:rgba(0,0,0,.8)}.car-a.prev{left:0}.car-a.next{right:0}
-.dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:10px;z-index:3}
-.dots{pointer-events:none}
+/* en pantallas mas anchas que un celular vertical (ej 619x714) la imagen vertical se muestra entera */
+.car-a{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(255,255,255,.8);background:rgba(0,0,0,.5);box-shadow:0 2px 8px rgba(0,0,0,.35);color:#fff;font-size:2.4rem;line-height:1;padding:0 0 5px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.car-a:hover{background:#000}.car-a.prev{left:20px}.car-a.next{right:20px}
+.dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:10px;z-index:3}
+.dots{display:none}
 .dots button{pointer-events:auto;width:11px;height:11px;border-radius:50%;border:2px solid #fff;background:transparent;cursor:pointer;padding:0}
 .dots button.on{background:#fff}
 .hero>img.on{opacity:1}
@@ -262,6 +262,11 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
   .ofertas-full .ocard-price{font-size:clamp(.88rem,2.2vh,1.1rem);line-height:1.1}
   .ofertas-full .ocard .row{gap:5px;flex-wrap:nowrap}
   .ofertas-full .ocard .btn.sm{padding:6px 8px;font-size:.66rem;letter-spacing:.03em;border-width:1.5px}
+}
+@media(max-width:768px){
+.car-a{top:50%;bottom:auto;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;font-size:1.8rem;padding:0 0 4px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);border:1.5px solid rgba(255,255,255,.8);box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.car-a.prev{left:8px}.car-a.next{right:8px}
+.dots{display:none}
 }
 .ocard-tag{margin-top:10px;background:var(--hl);color:#fff;padding:3px 12px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .ocard h3{font-size:1.35rem}.ocard-price{font-size:1.5rem;font-weight:700}
