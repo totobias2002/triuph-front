@@ -1,7 +1,7 @@
 // Cabecera de pagina: imagen de fondo oscura + titulo centrado (como el sitio de referencia)
-export default function PageHero({ img, titulo, sub, boton }) {
+export default function PageHero({ img, titulo, sub, boton, grande }) {
   return (
-    <section className="phero" style={img ? { backgroundImage: `url(${img})` } : undefined}>
+    <section className={grande ? 'phero phero-xl' : 'phero'} style={img ? { backgroundImage: `url(${img})` } : undefined}>
       <div className="phero-in">
         <h1>{titulo}</h1>
         {sub && <p>{sub}</p>}

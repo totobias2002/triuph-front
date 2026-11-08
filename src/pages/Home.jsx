@@ -1,25 +1,46 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import InstagramSection from '../components/InstagramSection'
 import ContactForm from '../components/ContactForm'
 
+// Posicion (en % de la imagen) del faro (fx, fy) y del escape (sx, sy) de cada moto
 const estilos = [
-  ['Classics', '/classics', '/img/home-classics.png'],
-  ['Roadsters', '/roadsters', '/img/home-roadsters.png'],
-  ['Adventure', '/adventure', '/img/home-adventure.png'],
+  ['Classics', '/classics', '/img/home-classics.png', { fx: 73, fy: 29, sx: 15, sy: 76 }],
+  ['Roadsters', '/roadsters', '/img/home-roadsters.png', { fx: 75, fy: 35, sx: 26, sy: 72 }],
+  ['Adventure', '/adventure', '/img/home-adventure.png', { fx: 74, fy: 22, sx: 19, sy: 40 }],
 ]
 
 export default function Home() {
+  // Al pasar por el titulo (o tocarlo en celular) las motos "arrancan"
+  const [encendido, setEncendido] = useState(false)
+
   return (
     <>
       <Carousel />
 
       <section className="sec center estilos-sec">
-        <h1>Bienvenido a Triumph</h1>
+        <h1
+          className="arranque"
+          onMouseEnter={() => setEncendido(true)}
+          onMouseLeave={() => setEncendido(false)}
+          onClick={() => setEncendido((v) => !v)}
+        >
+          Bienvenido a Triumph
+        </h1>
         <h2 className="sub">Elegí tu estilo</h2>
-        <div className="estilos">
-          {estilos.map(([n, to, img]) => (
-            <Link key={n} to={to} className="estilo"><img src={img} alt={n} /><span>{n}</span></Link>
+        <div className={`estilos${encendido ? ' encendido' : ''}`}>
+          {estilos.map(([n, to, img, p]) => (
+            <Link key={n} to={to} className="estilo">
+              <div className="moto">
+                <img src={img} alt={n} />
+                <div className="fx" aria-hidden="true" style={{ '--fx': `${p.fx}%`, '--fy': `${p.fy}%`, '--sx': `${p.sx}%`, '--sy': `${p.sy}%` }}>
+                  <i className="faro" />
+                  <i className="humo h1" /><i className="humo h2" /><i className="humo h3" /><i className="humo h4" />
+                </div>
+              </div>
+              <span>{n}</span>
+            </Link>
           ))}
         </div>
       </section>

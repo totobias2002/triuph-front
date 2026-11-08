@@ -4,6 +4,8 @@ import { offers } from '../data/offers'
 import { vigente, fotoModelo } from '../lib'
 import Counter from '../components/Counter'
 import ContactSection from '../components/ContactSection'
+import FichaCompleta from '../components/FichaCompleta'
+import { fichas } from '../data/fichas'
 
 // Titulos de la tabla de especificaciones: lineas cortas, sin coma/punto ni numeros grandes
 const esTitulo = (l) => l.length < 32 && !/\d{2,}/.test(l) && !/[,.]/.test(l)
@@ -53,9 +55,11 @@ export default function Model() {
   const eyebrow = esTag ? d.hero[0] : ''
   const titulo = esTag ? d.hero[1] : d.hero[0] || m.name
   const frase = esTag ? '' : d.hero[1] || ''
+  const ficha = fichas[m.slug]
   return (
     <>
-      <section className="mhero" style={{ backgroundImage: `url(${bg})` }}>
+      {ficha && <FichaCompleta m={m} f={ficha} hero={d.hero} botones={d.botones} titCifras={d.tit} stats={d.stats} secs={d.secs} />}
+      {!ficha && <section className="mhero" style={{ backgroundImage: `url(${bg})` }}>
         <div className="mhero-in">
           {eyebrow && <span className="mhero-tag">{eyebrow}</span>}
           <h1>{titulo}</h1>
@@ -67,9 +71,9 @@ export default function Model() {
           </div>
         </div>
         {png && png !== bg && <img className="mhero-moto" src={png} alt={m.name} />}
-      </section>
+      </section>}
 
-      {d.stats.length > 0 && (
+      {!ficha && d.stats.length > 0 && (
         <section className="cifras">
           <h2>{d.tit || `${m.name} en cifras`}</h2>
           <div className="cifras-g">
@@ -83,7 +87,7 @@ export default function Model() {
         </section>
       )}
 
-      {d.secs.map((s, i) => (
+      {!ficha && d.secs.map((s, i) => (
         <section key={i} className={'msec ' + (i % 2 ? 'rev' : '')}>
           {galeria[i] && <div className="msec-img"><img src={galeria[i]} alt={m.name} loading="lazy" /></div>}
           <div className="msec-t">
@@ -93,7 +97,21 @@ export default function Model() {
         </section>
       ))}
 
-      {specs.length > 0 && (
+      {ficha && (m.specs || []).length > 0 && (
+        <section className="fh-specs">
+          <h2>Características técnicas</h2>
+          <table>
+            <tbody>
+              {Array.from({ length: Math.ceil(m.specs.length / 2) }, (_, i) => (
+                <tr key={i}><th>{m.specs[i * 2]}</th><td>{m.specs[i * 2 + 1]}</td></tr>
+              ))}
+            </tbody>
+          </table>
+          {m.pdf && <a className="btn red" href={m.pdf} target="_blank" rel="noreferrer">{d.botones[2] || 'Descargar ficha técnica'}</a>}
+        </section>
+      )}
+
+      {!ficha && specs.length > 0 && (
         <section className="specs-sec">
           <h2>Características técnicas</h2>
           <div className="specs-g">
