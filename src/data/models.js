@@ -31,7 +31,7 @@ export const models = [
    "Servicio",
    "Nuevo motor TR (Euro 5), con carácter y de ágil respuesta"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/09/ficha-Tracker-400.pdf",
+  "pdf": "/docs/fichas/ficha-Tracker-400.pdf",
   "blocks": [
    {
     "t": "h",
@@ -129,7 +129,7 @@ export const models = [
    "Servicio",
    "Nuevo motor TR (Euro 5), con carácter y de ágil respuesta"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/09/ficha-Thruxton-400.pdf",
+  "pdf": "/docs/fichas/ficha-Thruxton-400.pdf",
   "blocks": [
    {
     "t": "h",
@@ -227,7 +227,7 @@ export const models = [
    "Servicio",
    "Nuevo motor TR (Euro 5), con carácter y de ágil respuesta"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-TR-Series-Speed-400.pdf",
+  "pdf": "/docs/fichas/ficha-TR-Series-Speed-400.pdf",
   "blocks": [
    {
     "t": "h",
@@ -323,7 +323,7 @@ export const models = [
    "Servicio",
    "Intervalos de mantenimiento cada 16.000 km, líderes en su categoría"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-TR-Series-Scrambler-400x.pdf",
+  "pdf": "/docs/fichas/ficha-TR-Series-Scrambler-400x.pdf",
   "blocks": [
    {
     "t": "h",
@@ -415,7 +415,7 @@ export const models = [
    "Servicio",
    "Intervalos de mantenimiento cada 16.000 km, líderes en su categoría"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-TR-Series-Scrambler-400xc-1.pdf",
+  "pdf": "/docs/fichas/ficha-TR-Series-Scrambler-400xc-1.pdf",
   "blocks": [
    {
     "t": "h",
@@ -517,7 +517,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/07/ficha-tiger-900-rally-pro-1.pdf",
+  "pdf": "/docs/fichas/ficha-tiger-900-rally-pro-1.pdf",
   "blocks": [
    {
     "t": "h",
@@ -630,7 +630,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-tiger-900-gt-pro.pdf",
+  "pdf": "/docs/fichas/ficha-tiger-900-gt-pro.pdf",
   "blocks": [
    {
     "t": "h",
@@ -743,7 +743,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Tiger-900-Alpine-Edition.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-900-Alpine-Edition.pdf",
   "blocks": [
    {
     "t": "h",
@@ -856,7 +856,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Tiger-900-Desert-Edition.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-900-Desert-Edition.pdf",
   "blocks": [
    {
     "t": "h",
@@ -970,7 +970,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/07/ficha-Tiger-1200-Rally-Pro-MY22.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-1200-Rally-Pro-MY22.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1077,7 +1077,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-Tiger-1200-GT-Pro-MY22.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-1200-GT-Pro-MY22.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1183,7 +1183,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-tiger-1200-rally-explorer.pdf",
+  "pdf": "/docs/fichas/ficha-tiger-1200-rally-explorer.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1293,7 +1293,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Tiger-1200-Alpine-edition.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-1200-Alpine-edition.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1396,7 +1396,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Tiger-1200-Desert-edition.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-1200-Desert-edition.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1502,7 +1502,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-tiger-660-sport.pdf",
+  "pdf": "/docs/fichas/ficha-tiger-660-sport.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1615,7 +1615,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Tiger-800-Sport-MY25.pdf",
+  "pdf": "/docs/fichas/ficha-Tiger-800-Sport-MY25.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1728,7 +1728,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/Street-Triple-765-RS.pdf",
+  "pdf": "/docs/fichas/Street-Triple-765-RS.pdf",
   "blocks": [
    {
     "t": "h",
@@ -1945,7 +1945,7 @@ export const models = [
    "Servicio",
    "Cada 16.000 km"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-Speed-Twin-900.pdf",
+  "pdf": "/docs/fichas/ficha-Speed-Twin-900.pdf",
   "blocks": [
    {
     "t": "h",
@@ -2052,7 +2052,7 @@ export const models = [
    "Caja de cambios",
    "6 speed"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-trident-660.pdf",
+  "pdf": "/docs/fichas/ficha-trident-660.pdf",
   "blocks": [
    {
     "t": "h",
@@ -2158,7 +2158,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-scrambler-1200-xc.pdf",
+  "pdf": "/docs/fichas/ficha-scrambler-1200-xc.pdf",
   "blocks": [
    {
     "t": "h",
@@ -2261,7 +2261,7 @@ export const models = [
    "Servicio",
    "16.000 kms o 12 meses, lo que antes ocurra."
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-boneville-t-100.pdf",
+  "pdf": "/docs/fichas/ficha-boneville-t-100.pdf",
   "blocks": [
    {
     "t": "h",
@@ -2367,7 +2367,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2025/09/ficha-boneville-t-120.pdf",
+  "pdf": "/docs/fichas/ficha-boneville-t-120.pdf",
   "blocks": [
    {
     "t": "h",
@@ -2480,7 +2480,7 @@ export const models = [
    "Caja de cambios",
    "6 velocidades"
   ],
-  "pdf": "https://triumphbuenosaires.com.ar/wp-content/uploads/2026/08/ficha-bobber-boneville.pdf",
+  "pdf": "/docs/fichas/ficha-bobber-boneville.pdf",
   "blocks": [
    {
     "t": "h",

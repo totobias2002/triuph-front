@@ -68,8 +68,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <Link to="/#contacto" onClick={close}>Contacto</Link>
-          <Link to="/#contacto" className="btn sm" onClick={close}>Agendá tu Test Ride</Link>
+          {/* "Contacto" y "Agendá tu Test Ride" SACADOS del menu (pedido 2026-11-13): llevaban al formulario, que esta oculto */}
         </nav>
       </div>
     </header>

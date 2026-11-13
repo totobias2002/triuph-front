@@ -1,25 +1,96 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { wa } from '../lib'
 import { mostrarContacto } from '../data/dealer'
 import Counter from './Counter'
+
+// Moto que "arranca": con el mouse encima vibra, prende el faro y larga humo; en celular, al tocarla (dura unos segundos).
+// e = { ar: ancho/alto de la foto, fx/fy: faro, sx/sy: escape (en % de la foto), dir: -1 si mira a la izquierda, fit: true = la caja toma la proporcion de la foto (para fotos con fondo propio) }
+function Arranque({ src, alt, e }) {
+  const [on, setOn] = useState(false)
+  const timer = useRef(0)
+  useEffect(() => () => clearTimeout(timer.current), [])
+  const prender = (ev) => { if (ev.pointerType === 'mouse') setOn(true) }
+  const apagar = (ev) => { if (ev.pointerType === 'mouse') setOn(false) }
+  const tocar = (ev) => {
+    if (ev.pointerType === 'mouse') return
+    setOn(true)
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOn(false), 3000)
+  }
+  return (
+    <div className={`moto fh-moto arranque${on ? ' encendido' : ''}`} style={e.fit ? { aspectRatio: e.ar } : undefined} onPointerEnter={prender} onPointerLeave={apagar} onPointerDown={tocar}>
+      <img src={src} alt={alt} loading="lazy" />
+      <div className="fx" aria-hidden="true" style={{ '--ar': e.ar, '--fx': `${e.fx}%`, '--fy': `${e.fy}%`, '--sx': `${e.sx}%`, '--sy': `${e.sy}%`, '--dir': e.dir || 1 }}>
+        <i className="faro" />
+        <i className="humo h1" /><i className="humo h2" /><i className="humo h3" /><i className="humo h4" />
+      </div>
+    </div>
+  )
+}
 
 // Parte de arriba de la ficha, igual al sitio original: hero con foto + barra, cifras + tira de fotos,
 // dos secciones con imagen, foto ancha, y video "aspectos clave".
 export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, secs }) {
   const tira = useRef(null)
   const [play, setPlay] = useState(false)
-  // Al llegar al final vuelve al principio (y al reves con "anterior")
-  const mover = (dir) => {
+  const sinTira = !(f.tira && f.tira.length > 0)
+  // Carrusel infinito que avanza de a poco y sin parar; frena con el mouse encima o al tocarlo y sigue al soltar.
+  // Las fotos se repiten 3 veces y se vuelve al medio sin que se note. Sin flechas: en celular se desliza con el dedo.
+  const n = sinTira ? 0 : f.tira.length
+  const pausa = useRef(false)
+  useEffect(() => {
     const t = tira.current
-    if (!t) return
-    const fin = t.scrollWidth - t.clientWidth - 4
-    if (dir > 0 && t.scrollLeft >= fin) t.scrollTo({ left: 0, behavior: 'smooth' })
-    else if (dir < 0 && t.scrollLeft <= 4) t.scrollTo({ left: t.scrollWidth, behavior: 'smooth' })
-    else t.scrollBy({ left: dir * t.clientWidth / 3, behavior: 'smooth' })
+    if (!t || n < 2) return undefined
+    const reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const ancho = () => (t.children[0] ? t.children[0].offsetWidth : 0)
+    let pos = 0
+    let ultimo = 0
+    let previo = 0
+    let raf = 0
+    const centrar = () => { const w = ancho(); if (w) { pos = n * w; t.scrollLeft = pos; ultimo = t.scrollLeft } }
+    const paso = (ahora) => {
+      raf = requestAnimationFrame(paso)
+      const w = ancho()
+      const dt = Math.min(ahora - previo, 64) / 1000
+      previo = ahora
+      if (!w) return
+      const bloque = n * w
+      // si el usuario movio la tira (dedo o rueda), seguir desde donde la dejo
+      if (Math.abs(t.scrollLeft - ultimo) > 1.5) pos = t.scrollLeft
+      else if (!pausa.current && !document.hidden && !reducido) pos += 45 * dt
+      if (pos < bloque * 0.5) pos += bloque
+      else if (pos >= bloque * 2) pos -= bloque
+      if (Math.abs(pos - t.scrollLeft) >= 0.5 || !pausa.current) t.scrollLeft = pos
+      ultimo = t.scrollLeft
+    }
+    centrar()
+    previo = performance.now()
+    raf = requestAnimationFrame(paso)
+    window.addEventListener('resize', centrar)
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', centrar) }
+  }, [n])
+  // Arrastrar con el mouse (la manito): agarrar la tira y moverla; en celular se desliza con el dedo (nativo)
+  const arrastre = useRef(null)
+  const arrastrarInicio = (ev) => {
+    if (ev.pointerType !== 'mouse' || ev.button !== 0) return
+    arrastre.current = { x: ev.clientX, id: ev.pointerId }
+    ev.currentTarget.setPointerCapture(ev.pointerId)
+    ev.currentTarget.classList.add('arrastrando')
+  }
+  const arrastrarMover = (ev) => {
+    const a = arrastre.current
+    if (!a) return
+    ev.currentTarget.scrollLeft -= ev.clientX - a.x
+    a.x = ev.clientX
+  }
+  const arrastrarFin = (ev) => {
+    if (!arrastre.current) return
+    arrastre.current = null
+    ev.currentTarget.classList.remove('arrastrando')
   }
   const [s1, s2] = secs
   return (
-    <>
+    <div className={sinTira ? 'fh-compacto' : undefined}>
       <div className="fh-pantalla">
         <section className="fh-hero" style={{ '--bg': `url(${f.hero})`, '--bgm': `url(${f.heroMovil || f.hero})`, '--bgc': f.colorMovil || '#222', '--am': f.aspectoMovil || 0.8, '--px': f.posMovil || '50%' }}>
           <div className="fh-hero-in">
@@ -37,7 +108,7 @@ export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, s
         </div>}
       </div>
 
-      <div className="fh-pantalla fh-cifras-p">
+      <div className={sinTira ? 'fh-pantalla fh-cifras-p sin-tira' : 'fh-pantalla fh-cifras-p'}>
         {stats.length > 0 && (
           <section className="fh-cifras">
             <h2>{titCifras || `${m.name} en cifras`}</h2>
@@ -48,18 +119,18 @@ export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, s
             </div>
           </section>
         )}
-        <div className="fh-tira-w">
-          <div className="fh-tira" ref={tira}>
-            {f.tira.map((src, i) => <img key={i} src={src} alt={`${m.name} ${i + 1}`} loading="lazy" />)}
+        {n > 0 && (
+          <div className="fh-tira-w" onMouseEnter={() => { pausa.current = true }} onMouseLeave={() => { pausa.current = false }} onPointerDown={() => { pausa.current = true }} onPointerUp={() => { pausa.current = false }}>
+            <div className="fh-tira" ref={tira} onPointerDown={arrastrarInicio} onPointerMove={arrastrarMover} onPointerUp={arrastrarFin} onPointerCancel={arrastrarFin}>
+              {(n > 1 ? [...f.tira, ...f.tira, ...f.tira] : f.tira).map((src, i) => <img key={i} src={src} alt={`${m.name} ${(i % n) + 1}`} loading="eager" draggable="false" />)}
+            </div>
           </div>
-          <button className="fh-fl prev" aria-label="Anterior" onClick={() => mover(-1)}>‹</button>
-          <button className="fh-fl next" aria-label="Siguiente" onClick={() => mover(1)}>›</button>
-        </div>
+        )}
       </div>
 
       {s1 && (
         <section className="fh-bloque">
-          <img src={f.izq} alt={m.name} loading="lazy" />
+          {f.efectoIzq ? <Arranque src={f.izq} alt={m.name} e={f.efectoIzq} /> : <img src={f.izq} alt={m.name} loading="lazy" />}
           <div>
             {s1.h && <h2>{s1.h}</h2>}
             {s1.p.map((p, k) => <p key={k}>{p}</p>)}
@@ -71,7 +142,7 @@ export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, s
 
       {s2 && (
         <section className="fh-bloque rev">
-          <img src={f.roja} alt={m.name} loading="lazy" />
+          {f.efecto ? <Arranque src={f.roja} alt={m.name} e={f.efecto} /> : <img src={f.roja} alt={m.name} loading="lazy" />}
           <div>
             {s2.h && <h2>{s2.h}</h2>}
             {s2.p.map((p, k) => <p key={k}>{p}</p>)}
@@ -95,6 +166,6 @@ export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, s
           )}
         </section>
       )}
-    </>
+    </div>
   )
 }
