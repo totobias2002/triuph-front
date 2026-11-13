@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { dealer, mostrarContacto } from '../data/dealer'
+import { dealer } from '../data/dealer'
 
 const YEAR = new Date().getFullYear()
 
@@ -20,17 +20,7 @@ export default function Footer() {
             <h4>Postventa</h4>
             <Link to="/service">Service</Link><Link to="/accesorios-triumph">Accesorios</Link><Link to="/indumentaria">Indumentaria</Link>
           </div>
-          <div>
-            <h4>{dealer.nombre}</h4>
-            {mostrarContacto && <>
-              <span className="foot-k">Dirección:</span>
-              <span>{dealer.direccion}</span>
-              <span className="foot-k">Horarios:</span>
-              {dealer.horarios.map((h) => <span key={h}>{h}</span>)}
-            </>}
-            <a href={dealer.instagram} target="_blank" rel="noreferrer">Instagram</a>
-            <a href={dealer.youtube} target="_blank" rel="noreferrer">Youtube</a>
-          </div>
+          {/* Columna "Triumph" con Instagram/Youtube (y direccion/horarios) SACADA del footer, pedido 2026-11-13. Para volverla: datos reales en dealer.js y agregar la columna con dealer.direccion, dealer.horarios, dealer.instagram y dealer.youtube */}
         </div>
         <div className="credits">
           <Link to="/politica-de-cookies">Política de Privacidad</Link>

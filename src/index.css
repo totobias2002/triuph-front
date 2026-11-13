@@ -63,7 +63,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 .dd-cat span{font-size:.72rem;font-weight:500;letter-spacing:.04em;text-transform:none;color:#999}.dd-cat:hover span{color:#fff}
 .dd-groups{display:grid;grid-template-columns:repeat(2,minmax(0,auto));gap:22px 36px;justify-content:start}
 .dd-groups .dd-h{font-size:.72rem;letter-spacing:.14em;color:#8a8a8a;padding-bottom:4px;border-bottom:1px solid #262626;margin-bottom:6px}
-.dd-groups .dd-col a{padding:2px 0}
+.dd-groups .dd-col a{padding:2px 0 2px 14px}
 .burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
 .burger span{width:26px;height:2px;background:#fff;display:block}
 
@@ -270,6 +270,18 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 }
 .ocard-tag{margin-top:10px;background:var(--hl);color:#fff;padding:3px 12px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .ocard h3{font-size:1.35rem}.ocard-price{font-size:1.5rem;font-weight:700}
+.svc-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:640px}
+.svc-wrap h1{color:#fff;text-align:center;font-size:clamp(1.8rem,5vw,3.2rem);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.svc-sub{color:#f0f0f0;text-align:center;margin:0 0 14px;font-size:clamp(1rem,2vw,1.25rem);text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.svc-bg{min-height:calc(100svh - 72px);display:flex;align-items:center;justify-content:center;padding:56px 20px;background:#222 center/cover no-repeat;position:relative}
+.svc-bg::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.svc-card{position:relative;max-width:640px;width:100%;background:rgba(255,255,255,.96);padding:clamp(26px,4vw,46px);box-shadow:0 24px 60px rgba(0,0,0,.45);border-top:4px solid var(--hl);display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.svc-k{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--hl)}
+.svc-card h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:0}
+.svc-card p{font-size:.95rem;line-height:1.6;margin:0}
+.svc-card ul{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:2px 0}
+.svc-card li{padding-left:22px;position:relative;font-weight:600}
+.svc-card li::before{content:'';position:absolute;left:0;top:.55em;width:10px;height:10px;background:var(--hl)}
 .svc{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1280px;margin:0 auto;padding:64px 20px;align-items:center}
 .svc-img img{width:100%;height:100%;max-height:560px;object-fit:cover}
 .svc-t{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:20px 5%}
@@ -450,6 +462,19 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin
 
 /* Donde estoy parado en el menu */
 .dd-t.aqui{border-bottom:2px solid var(--hl);padding-bottom:2px}
-.dd-col a.aqui{color:#fff;font-weight:700;position:relative;padding-left:12px}
-.dd-col a.aqui::before{content:'';position:absolute;left:0;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--hl)}
+/* la moto seleccionada NO cambia el ancho del menu: todos los links reservan el lugar del punto y el 'negrita' es un trazo, no un peso de fuente mas ancho */
+.dd-col a{position:relative;padding-left:14px}
+.dd-col a.aqui{color:#fff;text-shadow:.45px 0 0 currentColor,-.45px 0 0 currentColor}
+.dd-col a.aqui::before{content:'';position:absolute;left:0;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--hl)}
 .dd-cat.aqui::after{width:100%}
+
+/* BOOK de indumentaria: las fotos de la coleccion pasan solas en carrusel infinito, escalonadas */
+.book{background:#0c0c0c;color:#fff;padding:clamp(40px,6vh,64px) 0 clamp(44px,7vh,80px)}
+.book-g{display:flex;align-items:flex-start;gap:clamp(8px,1.2vw,18px);overflow-x:auto;scrollbar-width:none;padding:0 20px 70px;cursor:grab;touch-action:pan-x pan-y;overscroll-behavior-x:contain}
+.book-g::-webkit-scrollbar{display:none}.book-g.arrastrando{cursor:grabbing}
+.book-f{margin:0;overflow:hidden;flex:0 0 clamp(150px,16vw,235px);aspect-ratio:2/3;background:#1a1a1a;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.book-f:nth-child(even){margin-top:clamp(26px,5vw,70px)}
+.book-f img{width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s;filter:saturate(.92)}
+.book-f:hover img{transform:scale(1.07);filter:saturate(1.1)}
+.book-cierre{background:#0c0c0c;padding:clamp(40px,7vh,72px) 20px}
+.book-t{max-width:760px;margin:0 auto;text-align:center;color:#d8d8d8;font-size:.98rem;line-height:1.7}
