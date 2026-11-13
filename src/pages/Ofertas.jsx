@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { offers } from '../data/offers'
+import { offers, mostrarPrecios } from '../data/offers'
 import { models } from '../data/models'
 import { vigente, wa, modelPath } from '../lib'
 import ContactSection from '../components/ContactSection'
@@ -37,7 +37,7 @@ export default function Ofertas() {
                 </div>
                 <span className="ocard-tag">{o.etiqueta}</span>
                 <h3>{o.modelo}</h3>
-                <p className="ocard-price">{o.precio}</p>
+                {mostrarPrecios && <p className="ocard-price">{o.precio}</p>}
                 {o.hasta && <small className="muted">Válido hasta el {o.hasta.split('-').reverse().join('/')}</small>}
                 <div className="row c">
                   <Link to={m ? modelPath(m) : '/'} className="btn red sm">Ver más</Link>

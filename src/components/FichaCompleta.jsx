@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { wa } from '../lib'
+import { mostrarContacto } from '../data/dealer'
 import Counter from './Counter'
 
 // Parte de arriba de la ficha, igual al sitio original: hero con foto + barra, cifras + tira de fotos,
@@ -26,14 +27,14 @@ export default function FichaCompleta({ m, f, hero, botones, titCifras, stats, s
             {hero[1] && <p>{hero[1]}</p>}
           </div>
         </section>
-        <div className="fh-bar">
+        {mostrarContacto && <div className="fh-bar">
           <a href={wa(`Hola! Quiero agendar un test ride de la ${m.name}`)} target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M10 8.5l6 3.5-6 3.5z" /></svg>{botones[0] || 'Test Ride'}
           </a>
           <a href={wa(`Hola! Quiero pedir un presupuesto de la ${m.name}`)} target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8z" /></svg>{botones[1] || 'Pedir presupuesto'}
           </a>
-        </div>
+        </div>}
       </div>
 
       <div className="fh-pantalla fh-cifras-p">

@@ -11,7 +11,7 @@ export default function InstagramSection() {
     <section className="insta">
       <div className="insta-in">
         <h2>Seguinos en Instagram</h2>
-        <div className="insta-grid">
+        <div className="insta-grid" style={{ '--cols': instagram.posts.length }}>
           {instagram.posts.map((p) => (
             <a key={p.img} href={p.link || instagram.url} target="_blank" rel="noreferrer" className="insta-post" aria-label={p.alt}>
               <img src={p.img} alt={p.alt} loading="lazy" />

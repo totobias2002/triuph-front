@@ -11,6 +11,7 @@ import Service from './pages/Service'
 import Accesorios from './pages/Accesorios'
 import Indumentaria from './pages/Indumentaria'
 import Privacidad from './pages/Privacidad'
+import { mostrarOfertas } from './data/dealer'
 
 function ScrollTop() {
   const { pathname, hash } = useLocation()
@@ -29,7 +30,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/ofertas" element={mostrarOfertas ? <Ofertas /> : <Navigate to="/" replace />} />
           <Route path="/classics" element={<Category cat="classics" />} />
           <Route path="/roadsters" element={<Category cat="roadsters" />} />
           <Route path="/adventure" element={<Category cat="adventure" />} />

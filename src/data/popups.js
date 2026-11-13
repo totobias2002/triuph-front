@@ -4,7 +4,7 @@
 export const popups = [
   {
     id: 'bienvenida-nov-2026',
-    activo: true,
+    activo: false, // jefe 2026-11-13: sin promociones ni precios por ahora
     desde: '2026-11-06',
     hasta: '2026-11-30',
     titulo: 'Ofertas de noviembre',

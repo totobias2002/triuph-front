@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import InstagramSection from '../components/InstagramSection'
-import ContactForm from '../components/ContactForm'
+import { mostrarInstagram } from '../data/instagram'
+import ContactSection from '../components/ContactSection'
 
 // Posicion (en % de la imagen) del faro (fx, fy) y del escape (sx, sy) de cada moto
 const estilos = [
@@ -65,15 +66,9 @@ export default function Home() {
         </div>
       </section>
 
-      <InstagramSection />
+      {mostrarInstagram && <InstagramSection />}
 
-      <section className="contacto" id="contacto">
-        <div className="narrow">
-          <h2>Enviános tu consulta</h2>
-          <p className="muted">Despejaremos tu duda a la brevedad.</p>
-          <ContactForm />
-        </div>
-      </section>
+      <ContactSection />
     </>
   )
 }

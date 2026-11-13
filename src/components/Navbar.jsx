@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { models } from '../data/models'
 import { modelPath } from '../lib'
+import { mostrarOfertas } from '../data/dealer'
 
 // Menu "Motos": 3 secciones (las mismas categorias del sitio) y dentro cada familia con sus modelos
 const secciones = [
@@ -36,7 +37,7 @@ export default function Navbar() {
         <Link to="/" className="logo" onClick={close}><img src="/img/logo.svg" alt="Triumph" /></Link>
         <button className="burger" aria-label="Menú" onClick={() => setOpen(!open)}><span /><span /><span /></button>
         <nav className={open ? 'menu open' : 'menu'}>
-          <NavLink to="/ofertas" className={({ isActive }) => (isActive ? 'hl active oferta-nav' : 'hl oferta-nav')} onClick={close}>Ofertas</NavLink>
+          {mostrarOfertas && <NavLink to="/ofertas" className={({ isActive }) => (isActive ? 'hl active oferta-nav' : 'hl oferta-nav')} onClick={close}>Ofertas</NavLink>}
           <div className="dd dd-wide">
             <span className={enMotos ? 'dd-t aqui' : 'dd-t'}>Motos</span>
             <div className="dd-m mega">

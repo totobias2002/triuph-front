@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { dealer } from '../data/dealer'
+import { dealer, mostrarContacto } from '../data/dealer'
 import { wa } from '../lib'
 
 const Icono = () => (
@@ -13,9 +13,16 @@ const YEAR = new Date().getFullYear()
 export default function Footer() {
   return (
     <>
-      <a className="wapp" href={wa('Hola! Quiero hacer una consulta')} target="_blank" rel="noreferrer" aria-label="WhatsApp">
-        <Icono /><span className="wapp-t">Nuestro WhatsApp</span>
-      </a>
+      {/* Sin numero real (mostrarContacto=false) el boton se ve igual pero NO lleva a ningun lado */}
+      {mostrarContacto ? (
+        <a className="wapp" href={wa('Hola! Quiero hacer una consulta')} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <Icono /><span className="wapp-t">Nuestro WhatsApp</span>
+        </a>
+      ) : (
+        <span className="wapp" style={{ cursor: 'default' }} aria-hidden="true">
+          <Icono /><span className="wapp-t">Nuestro WhatsApp</span>
+        </span>
+      )}
       <footer className="foot">
         <div className="foot-in">
           <div className="foot-brand">
@@ -31,10 +38,12 @@ export default function Footer() {
           </div>
           <div>
             <h4>{dealer.nombre}</h4>
-            <span className="foot-k">Dirección:</span>
-            <span>{dealer.direccion}</span>
-            <span className="foot-k">Horarios:</span>
-            {dealer.horarios.map((h) => <span key={h}>{h}</span>)}
+            {mostrarContacto && <>
+              <span className="foot-k">Dirección:</span>
+              <span>{dealer.direccion}</span>
+              <span className="foot-k">Horarios:</span>
+              {dealer.horarios.map((h) => <span key={h}>{h}</span>)}
+            </>}
             <a href={dealer.instagram} target="_blank" rel="noreferrer">Instagram</a>
             <a href={dealer.youtube} target="_blank" rel="noreferrer">Youtube</a>
           </div>

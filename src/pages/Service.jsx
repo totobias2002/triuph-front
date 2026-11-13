@@ -1,4 +1,5 @@
 import { wa } from '../lib'
+import { mostrarContacto } from '../data/dealer'
 import PageHero from '../components/PageHero'
 import ContactSection from '../components/ContactSection'
 
@@ -17,7 +18,7 @@ export default function Service() {
             <li>Seguridad y confianza en cada viaje</li>
           </ul>
           <p>Agendá tu turno y realizá el service oficial en nuestro concesionario. Dale a tu moto la atención que se merece.</p>
-          <a className="btn red" href={wa('Hola! Quiero reservar un turno de service')} target="_blank" rel="noreferrer">Reservá tu turno</a>
+          {mostrarContacto && <a className="btn red" href={wa('Hola! Quiero reservar un turno de service')} target="_blank" rel="noreferrer">Reservá tu turno</a>}
         </div>
       </section>
       <ContactSection />

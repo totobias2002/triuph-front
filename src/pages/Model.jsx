@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { models } from '../data/models'
-import { offers } from '../data/offers'
+import { offers, mostrarPrecios } from '../data/offers'
 import { vigente, fotoModelo } from '../lib'
 import Counter from '../components/Counter'
 import ContactSection from '../components/ContactSection'
@@ -64,7 +64,7 @@ export default function Model() {
           {eyebrow && <span className="mhero-tag">{eyebrow}</span>}
           <h1>{titulo}</h1>
           {frase && <p className="mhero-sub">{frase}</p>}
-          {oferta && <p className="mhero-price">Oferta: {oferta.precio}</p>}
+          {oferta && mostrarPrecios && <p className="mhero-price">Oferta: {oferta.precio}</p>}
           <div className="row">
             <a href="#contacto" className="btn red">{d.botones[0] || 'Test Ride'}</a>
             <a href="#contacto" className="btn ghost">{d.botones[1] || 'Pedir presupuesto'}</a>
